@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=0">
+    <title>SLSCQ</title>
+    <style>
+        body{
+
+            max-width:800px;
+            margin:2em auto;
+            padding:10px 10px 300px;
+        }
+        #post{
+        }
+        #post p{
+            text-indent: 2em;
+        }
+        .ctrl-box{
+            padding:100px 0;
+            text-align: center;
+        }
+        .ctrl-box #themeInputEl{
+            display: block;
+            font-size:2em;
+            line-height:2em;
+            padding:0 .5em;
+            text-align: center;
+            border:2px solid #AAA;
+            outline:none;
+            border-radius:2px;
+            margin:0 auto;
+        }
+        .ctrl-box #themeInputEl:focus{
+            border-color:cornflowerblue;
+            box-shadow:0 4px 10px rgba(0,0,0,.1);
+        }
+        .num-box{
+            padding:10px;
+        }
+        .num-box #numEl{
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            width: 6em;
+        }
+        .num-box #numEl:before{
+            content: '字数 ';
+            opacity: 0.5;
+        }
+        .num-box #numInputEl{
+            display: inline-block;
+            vertical-align: top;
+            margin:3px 0;
+        }
+        #生成{
+            font-size:1.8em;
+            height:2em;
+            width:8em;
+            background:cornflowerblue;
+            color:#FFF;
+            border:0;
+            border-radius:3px;
+            cursor: pointer;
+            transition: box-shadow .3s ease;
+        }
+        #生成:focus{
+            box-shadow:0 4px 10px rgba(0,0,0,.02);
+        }
+        #生成:active{
+            box-shadow:0 4px 10px rgba(0,0,0,.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="ctrl-box">
+        <input type="text" placeholder="年轻人买房" value="" id=themeInputEl>
+        <div class="num-box">
+            <span id="numEl">500</span>
+            <input type="range" value=500 min=50 max=5000 step=1 id=numInputEl>
+        </div>
+        <button id="生成">生成</button>
+    </div>
+    <div id=post></div>
+    <script src="slscq.js"></script>
+    <script>
+        numInputEl.oninput = _=>{
+            numEl.innerHTML = numInputEl.value;
+        };
+        生成.onclick=_=>{
+            const theme = themeInputEl.value.trim() || '年轻人买房';
+            const num = +numInputEl.value.trim();
+            console.log(num)
+            post.innerHTML = main(theme,num);
+        }
+    </script>
+</body>
+</html>
