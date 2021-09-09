@@ -6,19 +6,29 @@
     <meta name="viewport" content="width=device-width,user-scalable=0">
     <title>SLSCQ</title>
     <style>
+        a{
+            color:cornflowerblue;
+        }
         body{
 
             max-width:800px;
             margin:2em auto;
-            padding:10px 10px 300px;
+            padding:10px;
+        }
+        .title{
+            text-align: center;
+            font-size:3em;
+            margin:0;
+            padding:1em 0 .5em;
         }
         #post{
+            padding:20px 0;
         }
         #post p{
             text-indent: 2em;
         }
         .ctrl-box{
-            padding:100px 0;
+            padding:40px 0 50px;
             text-align: center;
         }
         .ctrl-box #themeInputEl{
@@ -31,6 +41,7 @@
             outline:none;
             border-radius:2px;
             margin:0 auto;
+            max-width:calc(100% - 40px);
         }
         .ctrl-box #themeInputEl:focus{
             border-color:cornflowerblue;
@@ -53,11 +64,13 @@
             display: inline-block;
             vertical-align: top;
             margin:3px 0;
+            width: 100px;
         }
         #生成{
             font-size:1.8em;
             height:2em;
             width:8em;
+            margin:10px 0;
             background:cornflowerblue;
             color:#FFF;
             border:0;
@@ -71,18 +84,48 @@
         #生成:active{
             box-shadow:0 4px 10px rgba(0,0,0,.1);
         }
+        footer{
+            padding:150px 0 80px;
+            text-align: center;
+        }
+        footer p{
+            margin:0;
+            padding:14px 0;
+        }
+        footer small{
+            color:#333;
+        }
+        footer .hr{
+            display: inline-block;
+            vertical-align:middle;
+            margin:0 .5em;
+            height:1em;
+            border-right:1px solid #DDD;
+        }
     </style>
 </head>
 <body>
-    <div class="ctrl-box">
-        <input type="text" placeholder="年轻人买房" value="" id=themeInputEl>
+    <h1 class=title>社论生成器</h1>
+    <div class=ctrl-box>
+        <input type="text" placeholder="年轻人买房" id=themeInputEl>
         <div class="num-box">
             <span id="numEl">500</span>
             <input type="range" value=500 min=50 max=5000 step=1 id=numInputEl>
         </div>
-        <button id="生成">生成</button>
+        <button id="生成">生成报道</button>
     </div>
     <div id=post></div>
+    <footer>
+        <p>
+            <a href="https://github.com/Uahh/slscq" target="_blank">⭐️GitHub.com/Uahh/slscq</a>
+        </p>
+        <p>
+            <small>原始版本</small> <a href="https://github.com/Uahh">@Uahh</a>
+            <span class="hr"></span>
+            <small>网页版本</small> <a href="https://weibo.com/reiove">@卜卜口</a>
+        </p>
+    
+    </footer>
     <script src="slscq.js"></script>
     <script>
         numInputEl.oninput = _=>{
@@ -92,7 +135,7 @@
             const theme = themeInputEl.value.trim() || '年轻人买房';
             const num = +numInputEl.value.trim();
             console.log(num)
-            post.innerHTML = main(theme,num);
+            post.innerHTML = slscq(theme,num);
         }
     </script>
 </body>
