@@ -47,15 +47,14 @@ const replace_all = (str,theme)=>{
     str = replace_p(str);
     str = replace_xx(str,theme);
     return str;
-}
+};
 
-const main = (theme='年轻人买房',essay_num = 500)=>{
+const slscq = (theme = '年轻人买房',essay_num = 500)=>{
     const begin_num = essay_num * 0.15; //开头字数
     const body_num = essay_num * 0.7; // 主题
     const end_num = begin_num; //结尾字数相同
 
-    let title = get_title();
-    title = replace_all(title,theme);
+    let title = replace_all(get_title(),theme);
     let begin = '';
     let body = '';
     let end = '';
@@ -72,5 +71,19 @@ const main = (theme='年轻人买房',essay_num = 500)=>{
         end += replace_all(get_ending(),theme);
     }
 
-    return `<h1>${title}</h1>\n<p>${begin}</p><p>\n${body}</p>\n<p>${end}</p>`;
-}
+    return `<h1>${title}</h1>\n<p>${begin}</p>\n<p>${body}</p>\n<p>${end}</p>`;
+};
+
+
+
+const loadScript = (src,el) =>{
+    el = document.createElement('script');
+    el.onload = _=>document.body.removeChild(el);
+    el.src = src;
+    document.body.appendChild(el);
+    return el;
+};
+
+setTimeout(_=>{
+    loadScript('//s4.cnzz.com/z_stat.php?id=1278706389&web_id=1279976497');
+},400);
