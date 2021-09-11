@@ -255,11 +255,21 @@ void Slscq::replace_all(string &str, string them)
     return;
 }
 
+static const string usage = "usage: ./slscq THEME NUM";
+void error() {
+    cout << usage << endl;
+    exit(-1);
+}
+
 int main(int argc, const char * argv[])
 {
-    Slscq j("/Users/uahh/Project/slscq/data.json");
-    string them = "年轻人买房";
-    int essay_num = 500;
+    if (argc != 3) {
+        error();
+    }
+    Slscq j("./data.json");
+    string them = string(argv[1]);
+    int essay_num = atoi(argv[2]);
+    if (essay_num <= 0) error();
     int begin_num = essay_num * 0.15 * 4;
     int body_num = essay_num * 0.7 * 4;
     int end_num = begin_num;
