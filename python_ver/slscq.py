@@ -69,8 +69,8 @@ class Slscq:
         return input_str
 
     def gen(self, them: str = '年轻人买房', essay_num: int = 500) -> dict:
-        end_num = begin_num = essay_num * 0.15 * 4
-        body_num = essay_num * 0.7 * 4
+        end_num = begin_num = essay_num * 0.15
+        body_num = essay_num * 0.7
 
         title = self.replace_all(self.get_title(), them)
         begin = ''
