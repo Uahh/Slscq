@@ -1,1 +1,8 @@
 cpp_ver/include/nlohmann/* linguist-vendored
+cpp_ver/include/nlohmann/detail/* linguist-vendored
+cpp_ver/include/nlohmann/detail/meta linguist-vendored
+cpp_ver/include/nlohmann/detail/conversions/* linguist-vendored
+cpp_ver/include/nlohmann/detail/iterators/* linguist-vendored
+cpp_ver/include/nlohmann/detail/output/* linguist-vendored
+cpp_ver/include/nlohmann/detail/input/* linguist-vendored
+cpp_ver/include/nlohmann/thirdparty/hedley/* linguist-vendored
