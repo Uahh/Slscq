@@ -3,7 +3,16 @@ fetch('../data.json').then(data=>data.json()).then(_data=>{
     data = _data;
 });
 
-const get_random_num = total =>Math.floor(Math.random()*total);
+let random_num_cache=[]
+const get_random_num = total =>{
+    let tmp = Math.floor(Math.random()*total);
+    while(random_num_cache.includes(tmp)){
+        tmp = Math.floor(Math.random()*total);
+    }
+    random_num_cache.push(tmp)
+    random_num_cache.length>3?random_num_cache.shift():0
+    return tmp
+}
 const get_random = arr=>arr[get_random_num(arr.length)];
 const get_title = _=>get_random(data['title']);
 const get_noun = _=>get_random(data['noun']);
