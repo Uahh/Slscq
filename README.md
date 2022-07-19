@@ -2,7 +2,7 @@
 ## Slscq是什么?
 申论文章生成器，输入主题字数，输出随机拼凑的文章。
 
-网址：https://lab.magiconch.com/slscq/
+网址：https://sojo.im/slscq/
 
 C++版本Json库使用[nlohmann](https://github.com/nlohmann/json)
 
