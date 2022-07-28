@@ -52,7 +52,7 @@ public:
 
 int Slscq::get_random_num(unsigned long total)
 {
-    srand((unsigned int)clock());
+    srand((unsigned int)time(NULL));
     int num = rand() % (total);
     return num;
 }
